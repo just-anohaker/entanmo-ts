@@ -1,0 +1,12 @@
+export declare const interval: number;
+export declare const delegates: number;
+export declare const numOfBlocksPerRound: number;
+export declare const powLeading: number;
+export declare const powTimeOut: number;
+export declare function getTime(time?: number | undefined): number;
+export declare function getRealTime(epochTime?: number | undefined): number;
+export declare function getSlotNumber(epochTime: number | undefined): number;
+export declare function getSlotTime(slot: number): number;
+export declare function getNextSlot(): number;
+export declare function getLastSlot(nextSlot: number): number;
+export declare function getNumOfBlocksPerDay(): number;
