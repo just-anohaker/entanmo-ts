@@ -12,11 +12,11 @@ function getEpochTime(time: number | undefined): number {
     return Math.floor((time - t) / 1000);
 }
 
-export const interval: number = 3;
-export const delegates: number = 101;
-export const numOfBlocksPerRound: number = 101 * 1;
-export const powLeading: number = 7;
-export const powTimeOut: number = 2;
+export const cInterval: number = 3;
+export const cDelegates: number = 101;
+export const cNumOfBlocksPerRound: number = 101 * 1;
+export const cPowLeading: number = 7;
+export const cPowTimeOut: number = 2;
 
 export function getTime(time: number | undefined = undefined): number {
     return getEpochTime(time);
@@ -36,11 +36,11 @@ export function getSlotNumber(epochTime: number | undefined): number {
     if (epochTime === undefined) {
         epochTime = getTime(undefined);
     }
-    return Math.floor(epochTime / interval);
+    return Math.floor(epochTime / cInterval);
 }
 
 export function getSlotTime(slot: number): number {
-    return slot * interval;
+    return slot * cInterval;
 }
 
 export function getNextSlot() {
@@ -49,9 +49,25 @@ export function getNextSlot() {
 }
 
 export function getLastSlot(nextSlot: number) {
-    return nextSlot + delegates;
+    return nextSlot + cDelegates;
 }
 
 export function getNumOfBlocksPerDay() {
-    return Math.floor(24 * 60 * 60 / interval);
+    return Math.floor(24 * 60 * 60 / cInterval);
 }
+
+export default {
+    cInterval,
+    cDelegates,
+    cNumOfBlocksPerRound,
+    cPowLeading,
+    cPowTimeOut,
+
+    getTime,
+    getRealTime,
+    getSlotNumber,
+    getSlotTime,
+    getNextSlot,
+    getLastSlot,
+    getNumOfBlocksPerDay
+};
